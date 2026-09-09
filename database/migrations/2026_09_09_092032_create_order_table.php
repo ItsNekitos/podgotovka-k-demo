@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('place_name');
+            $table->date('date');
+            $table->enum('oplata', ['nal', 'perevod']);
             $table->timestamps();
         });
     }
