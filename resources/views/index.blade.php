@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <a href="{{ route('viewregister') }}">Register</a>
+    </header>
     
 </body>
 </html>
