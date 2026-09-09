@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['description'])]
 class Comment extends Model
 {
-    //
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
