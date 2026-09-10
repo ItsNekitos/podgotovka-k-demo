@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegRequest;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,30 +15,49 @@ class UserController extends Controller
     public function register(RegRequest $request)
     {
         $user = new User();
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        return response()->json(["token" => $user->createToken('api')->plainTextToken]);
+        Auth::login($user);
+        return redirect()->route('homepage');
     }
 
     public function login(AuthRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
-
-        if ($user && Hash::check($request->password, $user->password)) {
+        $user = User::where('name', $request->name)->first();
+        if (Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return response()->json(['token' => $user->createToken('api')->plainTextToken]);
-        } else {
-            return response()->json(['errors' => ["password" => ["Неверный email или пароль"]]]);
+            return redirect()->route('homepage');
         }
+
+        return back()->withInput()->withErrors(['password' => 'Неверный логин или пароль']);
     }
     public function logout()
     {
-        Auth::user()->currentAccessToken()->delete();
-        return response()->json(['message' => 'ok']);
+        Auth::logout();
+        return redirect()->route('homepage');
     }
     public function viewregister()
     {
         return view("register");
+    }
+       public function viewlogin()
+    {
+        return view("login");
+    }
+    public function homepage()
+    {
+        return view("index");
+    }
+    public function userprofileview()
+    {
+        $orders = Order::where("user_id", Auth::id())->get();
+        return view('userprofile', compact('orders'));
+    }
+        public function adminpanel()
+    {
+        $orders = Order::all();
+        return view('adminpanel', compact('orders'));
     }
 }

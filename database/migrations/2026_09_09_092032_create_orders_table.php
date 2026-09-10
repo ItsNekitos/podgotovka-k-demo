@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('place_name');
-            $table->date('date');
+            $table->dateTime('date');
             $table->enum('oplata', ['nal', 'perevod']);
+            $table->enum('status', ['New','In_process','Done','Canceled'])->default('New');
             $table->timestamps();
         });
     }

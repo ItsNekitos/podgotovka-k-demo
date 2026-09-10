@@ -23,7 +23,7 @@ class RegRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|min:3|exist:users',
+            'name'=>'required|min:3|unique:users',
             'email'=>'required|min:3|email',
             'password'=>'required|min:3'
         ];

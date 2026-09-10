@@ -23,7 +23,7 @@ class AuthRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|min:3|exist:users',
+            'name'=>'required|min:3|exists:users',
             'password'=>'required|min:3'
         ];
     }
