@@ -21,7 +21,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Ваше имя</label>
-                        <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputPassword1" placeholder="ФИО">
+                        <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputPassword1" placeholder="Имя">
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
