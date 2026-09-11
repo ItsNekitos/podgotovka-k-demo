@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <x-header/>
     <form action="{{ Route('orderform') }}" method="post">
         @csrf
         <div class="card-body">

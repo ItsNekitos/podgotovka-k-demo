@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommentRequest extends FormRequest
+class OrderEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description'=>'required|min:3',
+            'status'=>'required',
         ];
     }
 }

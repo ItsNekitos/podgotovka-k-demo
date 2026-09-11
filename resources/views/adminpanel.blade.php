@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <x-header/>
     <p>profile</p>
 
 
@@ -24,27 +25,27 @@
                 </ul>
             </div>
             @foreach ($orders as $order)
-            <div class="zakaz">
+            <form action="{{ Route('orderedit', [$order->id]) }}" method="get">
+                @csrf
                 <ul class="list-group list-group-horizontal" style="width: 100%;">
                     <li class="list-group-item zid">{{$order->id}}</li>
-                    <li class="list-group-item zname">{{$order->place_name}}</li>
-                    <li class="list-group-item zstatus" style="display:flex; flex-direction: column;">
-                        <h4 style="height: 25%; display: flex; align-items: center; justify-content: center;">
-                            @if($order->status == "New")
-                            Новый
-                            @elseif($order->status == "In_process")
-                            В работе
-                            @elseif($order->status == "Done")
-                            Готово
-                            @elseif($order->status == "Canceled")
-                            Отменен
-                            @endif
-                        </h4>
+                    <li class="list-group-item zdate">{{$order->place_name}}</li>
+                    <li class="list-group-item zadress">{{$order->date}}</li>
+                    <li class="list-group-item zstatus" style="display: flex; flex-direction: column;">
+                        <select style="height: 70%;" class="form-control statusSelect" id="{{ $order->id }}Text" name="status">
+                            <option value="in_process" @if ($order->status=='in_process') selected @else @endif>В работе</option>
+                            <option value="done" @if ($order->status=='done') selected @else @endif>Выполнено</option>
+                            <option value="canceled" @if ($order->status=='canceled') selected @else @endif>Отменено</option>
+                        </select>
                     </li>
-                    <li class="list-group-item ztime">{{$order->date}}</li>
-                    <li class="list-group-item zbutton">{{ $order->oplata }}</li>
+                    @if($order->oplata == "perevod")
+                    <li class="list-group-item zoplata">По карте</li>
+                    @else
+                    <li class="list-group-item zoplata">Наличные</li>
+                    @endif
                 </ul>
-            </div>
+                <button type="submit">Save</button>
+            </form>
             @endforeach
         </div>
     </article>

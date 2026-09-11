@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('place_name');
             $table->dateTime('date');
             $table->enum('oplata', ['nal', 'perevod']);
-            $table->enum('status', ['New','In_process','Done','Canceled'])->default('New');
+            $table->enum('status', ['in_process','done','canceled'])->default('in_process');
             $table->timestamps();
         });
     }

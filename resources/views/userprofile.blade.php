@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <x-header/>
     <p>profile</p>
 
 
@@ -30,13 +31,11 @@
                     <li class="list-group-item zname">{{$order->place_name}}</li>
                     <li class="list-group-item zstatus" style="display:flex; flex-direction: column;">
                         <h4 style="height: 25%; display: flex; align-items: center; justify-content: center;">
-                            @if($order->status == "New")
-                            Новый
-                            @elseif($order->status == "In_process")
+                            @if($order->status == "in_process")
                             В работе
-                            @elseif($order->status == "Done")
+                            @elseif($order->status == "done")
                             Готово
-                            @elseif($order->status == "Canceled")
+                            @elseif($order->status == "canceled")
                             Отменен
                             @endif
                         </h4>
@@ -44,6 +43,19 @@
                     <li class="list-group-item ztime">{{$order->date}}</li>
                     <li class="list-group-item zbutton">{{ $order->oplata }}</li>
                 </ul>
+                @if($order->status == "done")
+                <form action="{{ Route('comment', [$order->id]) }}" method="post">
+                    <input name="description" id="" />
+                    <button type="submit">submit</button>
+                </form>
+                @endif
+                @foreach ($comments as $comment)
+                @if ($comment->order_id == $order->id)
+                <div>
+                    <p>{{ $comment->description }}</p>
+                </div>
+                @endif
+                @endforeach
             </div>
             @endforeach
         </div>

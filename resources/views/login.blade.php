@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <header>123123123</header>
+    <x-header/>
     <main>
             <form action="{{ Route('login') }}" method="get">
                 @csrf

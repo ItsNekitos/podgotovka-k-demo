@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function comment(CommentRequest $request, Order $order)
+    public function comment(CommentRequest $request, $id)
     {
         $comment = new Comment();
-        $comment->order_id = $order->id;
+        $comment->order_id = $id;
         $comment->user_id = Auth::user()->id;
         $comment->description = $request->description;
         $comment->save();

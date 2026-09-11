@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegRequest;
+use App\Models\Comment;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -53,9 +54,10 @@ class UserController extends Controller
     public function userprofileview()
     {
         $orders = Order::where("user_id", Auth::id())->get();
-        return view('userprofile', compact('orders'));
+        $comments = Comment::all();
+        return view('userprofile', compact('orders', 'comments'));
     }
-        public function adminpanel()
+    public function adminpanel()
     {
         $orders = Order::all();
         return view('adminpanel', compact('orders'));

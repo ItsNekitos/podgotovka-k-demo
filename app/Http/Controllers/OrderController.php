@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderEditRequest;
 use App\Http\Requests\OrderRequest;
+use App\Models\Comment;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +14,8 @@ class OrderController extends Controller
     public function order()
     {
         $orders = Order::where("user_id", Auth::id())->get();
-        return view('userprofile', compact('orders'));
+        $comments = Comment::all();
+        return view('userprofile', compact('orders', 'comments'));
     }
     
     public function orderform(OrderRequest $request){
@@ -24,6 +27,12 @@ class OrderController extends Controller
             $order->oplata = $request->oplata;
             $order->save();
             return redirect()->route('order');
+    }
+    public function orderedit(OrderEditRequest $request, $id){
+        $order = Order::find($id);
+        $order->status = $request->status;
+        $order->save();
+        return back();
     }
     public function orderview()
     {

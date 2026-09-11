@@ -6,19 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        @if (!Auth::user())
-        <a href="{{ route('viewregister') }}">Register</a>
-        @endif
-        @auth
-        @if (Auth::user()->role == 'admin')
-        <a href="{{ route('adminpanel') }}">Panel</a>
-        @else
-        <a href="{{ route('userprofileview') }}">Profile</a>
-        @endif
-        <a href="{{ route('logout') }}">Logout</a>
-        @endauth
-    </header>
+    <x-header/>
     <main>
         @auth
         <div>

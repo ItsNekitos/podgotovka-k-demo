@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <header>123123123</header>
+    <x-header/>
     <main>
             <form action="{{ Route('register') }}" method="post" enctype="multipart/form-data">
                 @csrf
