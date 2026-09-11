@@ -4,18 +4,26 @@
         <div class="logo">
             <img src="{{ asset('img/etazhi-logotip-vektor-48.jpg') }}" alt="">
         </div>
-        <div class="headercenter"></div>
+        <div class="headercenter">
+            <a href="{{ route('homepage') }}">Конференции.РФ</a>
+        </div>
         <div class="headerprofile">
             @if (!Auth::user())
-            <a href="{{ route('viewregister') }}">Register</a>
+            <div>
+                <a href="{{ route('viewregister') }}">Регистрация</a>
+            </div>
             @endif
             @auth
-            @if (Auth::user()->role == 'admin')
-            <a href="{{ route('adminpanel') }}">Panel</a>
-            @else
-            <a href="{{ route('userprofileview') }}">Profile</a>
-            @endif
-            <a href="{{ route('logout') }}">Logout</a>
+            <div>
+                @if (Auth::user()->role == 'admin')
+                <a href="{{ route('adminpanel') }}">Панель</a>
+                @else
+                <a href="{{ route('userprofileview') }}">Профиль</a>
+                @endif
+            </div>
+            <div>
+                <a href="{{ route('logout') }}">Выход</a>
+            </div>
             @endauth
         </div>
         <div class="headerside"></div>
