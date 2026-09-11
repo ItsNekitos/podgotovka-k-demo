@@ -51,19 +51,29 @@
                                     </h4>
                                 </li>
                             </ul>
-                            @if($order->status == "done")
-                            <form action="{{ Route('comment', [$order->id]) }}" method="post">
-                                <input name="description" id="" />
-                                <button type="submit">submit</button>
-                            </form>
-                            @endif
-                            @foreach ($comments as $comment)
-                            @if ($comment->order_id == $order->id)
-                            <div>
-                                <p>{{ $comment->description }}</p>
+                            <div id="comments">
+                                <div style="width:100%; display: flex; flex-direction:column; justify-content:start; margin-left: 50px;">
+                                    <label for="">Отзывы:</label>
+                                    @foreach ($comments as $comment)
+                                    @if ($comment->order_id == $order->id)
+                                    <div style="margin-left: 20px;">
+                                        <p style="font-size:20px;">{{ $comment->user->name }}</p>
+                                        <p style="margin-left: 10px; margin-bottom: 15px; margin-top: 5px; color:rgb(55,55,55);">{{ $comment->description }}</p>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                </div>
+                                @if($order->status == "done")
+                                <label for="">Оставить отзыв</label>
+                                <form action="{{ Route('comment', [$order->id]) }}" method="post">
+                                    <input name="description" id="" />
+                                    @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    <button type="submit">Оставить</button>
+                                </form>
+                                @endif
                             </div>
-                            @endif
-                            @endforeach
                         </div>
                         @endforeach
                     </div>
