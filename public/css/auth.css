@@ -21,6 +21,7 @@ main {
     width: 90%;
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -28,7 +29,6 @@ main {
     width: 5%;
     height: 100%;
 }
-
 #zagolovok {
     width: 100%;
     height: 100px;
@@ -36,86 +36,44 @@ main {
     align-items: center;
     justify-content: center;
 }
-
-#zali {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.card {
+form{
     width: 70%;
-    height: 400px;
+    height: 580px;
     border: solid 2px;
-    border-radius: 5px;
+    border-radius:10px;
     border-color: rgb(131, 41, 0);
     display: flex;
-    flex-direction: row;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    flex-direction: column;
+    margin: 10px;
 }
-
-.card-img {
-    width: 60%;
-    height: 100%;
-}
-
-.card-img img {
+form div{
     width: 100%;
-    height: 100%;
-}
-
-.card-desc {
-    width: 40%;
-    height: 100%;
+    height: 120px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 }
-
-.card-desc-head {
-    width: 100%;
-    height: 20%;
-}
-
-.card-desc-head p {
-    font-size: 28px;
-}
-
-.card-desc-desc {
-    width: 100%;
-    height: 50%;
-}
-
-.card-desc-desc p {
-    color: rgb(107, 107, 107);
-}
-
-.card-desc-button {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-desc-button div {
+form div input{
     width: 90%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 60%;
+}
+form button{
+    width: 90%;
+    height: 60px;
     border: solid 2px;
     border-radius: 10px;
     border-color: rgb(131, 41, 0);
     background-color: rgb(255, 81, 0);
-}
-
-.card-desc-button div a {
-    font-size: 28px;
-    text-decoration: none;
     color: white;
+}
+form label{
+    font-size: 28px;
+}
+form a{
+    font-size: 18px;
+    color: rgb(117, 117, 117);
+    text-decoration: none;
+    margin-top: 25px;
 }
