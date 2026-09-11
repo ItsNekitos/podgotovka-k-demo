@@ -42,6 +42,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
+    <x-footer/>
 </body>
 
 </html>
