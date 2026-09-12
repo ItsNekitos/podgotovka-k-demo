@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="{{ asset('css/order.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <body>
     <x-header />
@@ -22,21 +23,21 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label>Название места</label>
-                            <input type="text" value="{{ old('place_name') }}" name="place_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите название места">
-                            @error('place_name')
-                            <div>{{ $message }}</div>
-                            @enderror
+                            <input type="text" value="{{ old('place_name') }}" name="place_name" placeholder="Введите название места">
                         </div>
+                        @error('place_name')
+                        <div class="alert">{{ $message }}</div>
+                        @enderror
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Дата и время доставки</label>
-                            <input type="datetime-local" value="{{ old('date') }}" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('date')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            <label>Дата и время доставки</label>
+                            <input type="datetime-local" value="{{ old('date') }}" name="date">
                         </div>
+                        @error('date')
+                        <div class="alert">{{ $message }}</div>
+                        @enderror
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Способ оплаты</label>
-                            <select class="form-control" id="exampleInputEmail1" name="oplata" id="filt">
+                            <label>Способ оплаты</label>
+                            <select name="oplata">
                                 <option value="nal">Наличные</option>
                                 <option value="perevod">По карте</option>
                             </select>
@@ -50,7 +51,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>

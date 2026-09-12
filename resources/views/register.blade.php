@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <body>
     <x-header />
@@ -17,31 +18,38 @@
                 <div id="zagolovok">
                     <h1>Регистрация</h1>
                 </div>
-                <form action="{{ Route('register') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ Route('register') }}" method="post">
                     @csrf
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Ваше имя</label>
-                        <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputPassword1" placeholder="Имя">
-                        @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">E-mail</label>
-                        <input type="email" value="{{ old('email') }}" name="email" class="form-control" id="exampleInputPassword1" placeholder="Введите E-mail">
-                        @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Введите пароль">
-                        @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                     <div>
-                        <button type="submit" class="btn btn-primary" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Зарегистрироваться</button>
+                        <label>Ваше имя</label>
+                        <input type="text" value="{{ old('name') }}" name="name" placeholder="Имя">
+                    </div>
+                    @error('name')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
+                    <div>
+                        <label>E-mail</label>
+                        <input type="email" value="{{ old('email') }}" name="email" placeholder="Введите E-mail">
+                    </div>
+                    @error('email')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
+                    <div>
+                        <label>Телефон</label>
+                        <input type="tel" type="phone" value="{{ old('phone') }}" name="phone" placeholder="Введите номер телефона в формате: 8(950)-999-99-99">
+                    </div>
+                    @error('phone')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
+                    <div>
+                        <label>Пароль</label>
+                        <input type="password" name="password" placeholder="Введите пароль">
+                    </div>
+                    @error('password')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
+                    <div>
+                        <button type="submit" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Зарегистрироваться</button>
                         <a href="{{ Route('viewlogin') }}">Вход в аккаунт</a>
                     </div>
                 </form>
@@ -49,7 +57,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>

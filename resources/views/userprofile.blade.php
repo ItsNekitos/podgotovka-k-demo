@@ -21,7 +21,7 @@
                     <div id="zakazes">
                         <div class="zakaz">
                             <ul>
-                                <li>№</li>
+                                <li>ID</li>
                                 <li>Место</li>
                                 <li>Дата заказа</li>
                                 <li>Оплата</li>
@@ -70,7 +70,7 @@
                                     @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                    <button type="submit">Оставить</button>
+                                    <button style="margin-bottom:10px;" type="submit">Оставить</button>
                                 </form>
                                 @endif
                             </div>

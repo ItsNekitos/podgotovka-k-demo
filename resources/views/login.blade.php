@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <body>
     <x-header />
@@ -20,21 +21,21 @@
                 <form action="{{ Route('login') }}" method="get">
                     @csrf
                     <div>
-                        <label for="exampleInputPassword1" class="form-label">Ваше имя</label>
-                        <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputPassword1" placeholder="Имя">
+                        <label>Ваше имя</label>
+                        <input type="text" value="{{ old('name') }}" name="name" placeholder="Имя">
                         @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert">{{ $message }}</div>
                         @enderror
                     </div>
                     <div>
-                        <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Введите пароль">
+                        <label>Пароль</label>
+                        <input type="password" name="password" placeholder="Введите пароль">
                         @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert">{{ $message }}</div>
                         @enderror
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Войти</button>
+                        <button type="submit" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Войти</button>
                         <a href="{{ Route('viewregister') }}">Нет аккаунта? Зарегестрируйтесь</a>
                     </div>
                 </form>

@@ -21,7 +21,7 @@
                     <div id="zakazes">
                         <div class="zakaz">
                             <ul>
-                                <li>№</li>
+                                <li>ID</li>
                                 <li>Место</li>
                                 <li>Дата заказа</li>
                                 <li>Оплата</li>

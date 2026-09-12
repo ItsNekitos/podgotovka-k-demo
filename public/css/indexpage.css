@@ -115,6 +115,11 @@ main {
 }
 
 .card-desc-button div a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 28px;
     text-decoration: none;
     color: white;
