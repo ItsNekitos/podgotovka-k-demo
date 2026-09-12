@@ -21,8 +21,8 @@
                 <form action="{{ Route('register') }}" method="post">
                     @csrf
                     <div>
-                        <label>Ваше имя</label>
-                        <input type="text" value="{{ old('name') }}" name="name" placeholder="Имя">
+                        <label>Логин</label>
+                        <input type="text" value="{{ old('name') }}" name="name" placeholder="Логин">
                     </div>
                     @error('name')
                     <div class="alert">{{ $message }}</div>
