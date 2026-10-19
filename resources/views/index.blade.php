@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-desc">
                             <div class="card-desc-head">
-                                <p>Такойто то зал</p>
+                                <p>Маленький зал для конференций</p>
                             </div>
                             <div class="card-desc-desc">
                                 <p>Он находится тут та там та там ваще комфортик</p>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="card-desc">
                             <div class="card-desc-head">
-                                <p>Такойто то зал</p>
+                                <p>Средний стильный зал для конференций</p>
                             </div>
                             <div class="card-desc-desc">
                                 <p>Он находится тут та там та там ваще комфортик</p>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="card-desc">
                             <div class="card-desc-head">
-                                <p>Такойто то зал</p>
+                                <p>Ламповый зал для конференций</p>
                             </div>
                             <div class="card-desc-desc">
                                 <p>Он находится тут та там та там ваще комфортик</p>

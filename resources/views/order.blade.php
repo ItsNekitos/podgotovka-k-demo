@@ -23,13 +23,17 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label>Название места</label>
-                            <input type="text" value="{{ old('place_name') }}" name="place_name" placeholder="Введите название места">
+                            <select name="place_name">
+                                <option value="Маленький зал для конференций">Маленький зал для конференций</option>
+                                <option value="Средний стильный зал для конференций">Средний стильный зал для конференций</option>
+                                <option value="Ламповый зал для конференций">Ламповый зал для конференций</option>
+                            </select>
                         </div>
                         @error('place_name')
                         <div class="alert">{{ $message }}</div>
                         @enderror
                         <div class="mb-3">
-                            <label>Дата и время доставки</label>
+                            <label>Дата и время бронирования зала</label>
                             <input type="datetime-local" value="{{ old('date') }}" name="date">
                         </div>
                         @error('date')

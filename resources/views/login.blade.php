@@ -23,17 +23,17 @@
                     <div>
                         <label>Логин</label>
                         <input type="text" value="{{ old('name') }}" name="name" placeholder="Логин">
-                        @error('name')
-                        <div class="alert">{{ $message }}</div>
-                        @enderror
                     </div>
+                    @error('name')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
                     <div>
                         <label>Пароль</label>
                         <input type="password" name="password" placeholder="Введите пароль">
-                        @error('password')
-                        <div class="alert">{{ $message }}</div>
-                        @enderror
                     </div>
+                    @error('password')
+                    <div class="alert">{{ $message }}</div>
+                    @enderror
                     <div>
                         <button type="submit" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Войти</button>
                         <a href="{{ Route('viewregister') }}">Нет аккаунта? Зарегестрируйтесь</a>
@@ -43,7 +43,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>

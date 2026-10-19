@@ -1,7 +1,8 @@
 .alert{
-    width: 80%;
-    height: 80px;
-    margin: 10px;
-    background-color: rgb(255, 100, 100);
-    color: white;
+    width: 88%;
+    height: 60px;
+    border: solid 1px;
+    border-color: rgb(164, 0, 0);
+    background-color: rgb(255, 165, 165);
+    color: rgb(164, 0, 0);
 }
