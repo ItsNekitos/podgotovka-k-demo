@@ -36,7 +36,7 @@
                     @enderror
                     <div>
                         <button type="submit" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Войти</button>
-                        <a href="{{ Route('viewregister') }}">Нет аккаунта? Зарегестрируйтесь</a>
+                        <a href="{{ Route('viewregister') }}">Нет аккаунта? Зарегистрируйся</a>
                     </div>
                 </form>
             </div>

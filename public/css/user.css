@@ -58,7 +58,7 @@ form{
     justify-content: center;
 }
 li{
-    width: 100px;
+    width: 25%;
     height: 50px;
     margin: 25px;
     color: rgb(51, 51, 51);
@@ -100,13 +100,16 @@ form button{
 }
 #comments{
     width: 100%;
-    height: 20%;
+    height: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 #comments form{
+    height: 150px;
     display: flex;
     flex-direction: column;
     border: none;
@@ -114,14 +117,15 @@ form button{
 }
 #comments form button{
     width: 40%;
-    height: 60%;
+    height: 40%;
     margin-top: 10px;
 }
-#comments form input{
-    width: 80%;
+#comments form textarea{
+    width: 95%;
     height: 60%;
 }
 #comments label{
     margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 24px;
 }

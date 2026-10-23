@@ -17,21 +17,19 @@
                 <div id="zagolovok">
                     <h1>Заказы</h1>
                 </div>
+                @foreach ($orders as $order)
                 <article class="post">
                     <div id="zakazes">
                         <div class="zakaz">
                             <ul>
-                                <li>ID</li>
                                 <li>Место</li>
                                 <li>Дата заказа</li>
                                 <li>Оплата</li>
                                 <li>Статус</li>
                             </ul>
                         </div>
-                        @foreach ($orders as $order)
                         <div class="zakaz">
                             <ul class="list-group list-group-horizontal" style="width: 100%;">
-                                <li class="list-group-item zid">{{$order->id}}</li>
                                 <li class="list-group-item zname">{{$order->place_name}}</li>
                                 <li class="list-group-item ztime">{{$order->date}}</li>
                                 @if($order->oplata == "perevod")
@@ -39,8 +37,8 @@
                                 @else
                                 <li class="list-group-item zoplata">Наличные</li>
                                 @endif
-                                <li class="list-group-item zstatus" style="display:flex; flex-direction: column;">
-                                    <h4 style="height: 25%; display: flex; align-items: center; justify-content: center;">
+                                <li class="list-group-item zstatus">
+                                    <h4>
                                         @if($order->status == "in_process")
                                         В работе
                                         @elseif($order->status == "done")
@@ -52,6 +50,15 @@
                                 </li>
                             </ul>
                             <div id="comments">
+                                @if($order->status == "done")
+                                <label for="comment">Оставить отзыв</label>
+                                <form action="{{ Route('comment', [$order->id]) }}" method="post">
+                                    <textarea name="description" id=""></textarea>
+                                    @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    <button style="margin-bottom:10px;" type="submit">Оставить</button>
+                                </form>
                                 <div style="width:100%; display: flex; flex-direction:column; justify-content:start; margin-left: 50px;">
                                     <label for="">Отзывы:</label>
                                     @foreach ($comments as $comment)
@@ -63,26 +70,17 @@
                                     @endif
                                     @endforeach
                                 </div>
-                                @if($order->status == "done")
-                                <label for="">Оставить отзыв</label>
-                                <form action="{{ Route('comment', [$order->id]) }}" method="post">
-                                    <input name="description" id="" />
-                                    @error('description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <button style="margin-bottom:10px;" type="submit">Оставить</button>
-                                </form>
                                 @endif
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </article>
+                @endforeach
             </div>
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>
