@@ -28,7 +28,7 @@
                                 <option value="{{ $place->name }}">{{ $place->name }}</option>
                                 @endforeach
                             </select>
-                            <img src="{{ $place->photo }}" alt="">
+                            <!-- <img src="{{ $place->photo }}" alt=""> -->
                         </div>
                         @error('place_name')
                         <div class="alert">{{ $message }}</div>
