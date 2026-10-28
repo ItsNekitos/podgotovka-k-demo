@@ -24,10 +24,11 @@
                         <div class="mb-3">
                             <label>Название места</label>
                             <select name="place_name">
-                                <option value="Маленький зал для конференций">Маленький зал для конференций</option>
-                                <option value="Средний стильный зал для конференций">Средний стильный зал для конференций</option>
-                                <option value="Ламповый зал для конференций">Ламповый зал для конференций</option>
+                                @foreach($places as $place)
+                                <option value="{{ $place->name }}">{{ $place->name }}</option>
+                                @endforeach
                             </select>
+                            <img src="{{ $place->photo }}" alt="">
                         </div>
                         @error('place_name')
                         <div class="alert">{{ $message }}</div>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Place;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,11 @@ class DatabaseSeeder extends Seeder
             "phone"=>"89507458234",
             "password" => 'Demo77',
             "role" => 'admin',
+        ]);
+        Place::create([
+            "name"=>"Маленький зал для конференций",
+            "desc"=>"Небольшой и удобный зал для проведения ваших конференций",
+            "photo"=>"storage/photos/JhvSiyzO0jDOh2ayf7MAUVJ9sPINHNIyooodIvgn.jpg"
         ]);
     }
 }

@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <body>
     <x-header />
@@ -14,6 +15,47 @@
         <div id="maindiv">
             <div class="sidediv"></div>
             <div id="osnova">
+                <div id="zagolovok">
+                    <h1>Создать помещение</h1>
+                </div>
+                <article>
+                    <div>
+                        <form action="{{ Route('placeform') }}" method="post" enctype="multipart/form-data" style="height:auto;">
+                            @csrf
+                            <div>
+                                <label for="name">Название</label>
+                                <input id="name" type="text" value="{{ old('name') }}" name="name" placeholder="Название">
+                            </div>
+                            @error('name')
+                            <div class="alert">{{ $message }}</div>
+                            @enderror
+
+                            <div>
+                                <label for="desc">Описание</label>
+                                <input id="desc" type="text" value="{{ old('desc') }}" name="desc" placeholder="Описание">
+                            </div>
+                            @error('desc')
+                            <div class="alert">{{ $message }}</div>
+                            @enderror
+
+                            <div>
+                                <label for="photo">Фото</label>
+                                <input id="photo" type="file" name="photo">
+                            </div>
+                            @error('photo')
+                            <div class="alert">{{ $message }}</div>
+                            @enderror
+
+                            <button type="submit" style="margin-bottom:20px; margin-top: 20px;">Добавить</button>
+                        </form>
+                    </div>
+                </article>
+
+
+
+
+
+
                 <div id="zagolovok">
                     <h1>Заказы</h1>
                 </div>
@@ -60,7 +102,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>

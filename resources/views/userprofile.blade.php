@@ -53,7 +53,7 @@
                                 @if($order->status == "done")
                                 <label for="comment">Оставить отзыв</label>
                                 <form action="{{ Route('comment', [$order->id]) }}" method="post">
-                                    <textarea name="description" id=""></textarea>
+                                    <textarea id="comment" name="description" id=""></textarea>
                                     @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

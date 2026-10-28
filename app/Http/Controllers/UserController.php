@@ -6,6 +6,7 @@ use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegRequest;
 use App\Models\Comment;
 use App\Models\Order;
+use App\Models\Place;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,8 @@ class UserController extends Controller
     }
     public function homepage()
     {
-        return view("index");
+        $places = Place::all();
+        return view('index', compact('places'));
     }
     public function userprofileview()
     {

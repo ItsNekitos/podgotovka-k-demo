@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,7 @@ Route::get("/orderview", [OrderController::class, "orderview"])->name('orderview
 Route::post("/orderform", [OrderController::class, "orderform"])->name('orderform');
 Route::get("/order", [OrderController::class, 'order'])->name('order');
 Route::get("/orderedit/{orderid}", [OrderController::class, 'orderedit'])->name('orderedit');
+
+Route::post("/placeform", [PlaceController::class, "placeform"])->name('placeform');
 
 Route::post("/comment/{orderid}", [CommentController::class, "comment"])->name('comment');

@@ -21,15 +21,15 @@
                 <form action="{{ Route('login') }}" method="get">
                     @csrf
                     <div>
-                        <label>Логин</label>
-                        <input type="text" value="{{ old('name') }}" name="name" placeholder="Логин">
+                        <label for="login">Логин</label>
+                        <input id="login" type="text" value="{{ old('name') }}" name="name" placeholder="Логин">
                     </div>
                     @error('name')
                     <div class="alert">{{ $message }}</div>
                     @enderror
                     <div>
-                        <label>Пароль</label>
-                        <input type="password" name="password" placeholder="Введите пароль">
+                        <label for="password">Пароль</label>
+                        <input id="password" type="password" name="password" placeholder="Введите пароль">
                     </div>
                     @error('password')
                     <div class="alert">{{ $message }}</div>

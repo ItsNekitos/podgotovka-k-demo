@@ -6,6 +6,7 @@ use App\Http\Requests\OrderEditRequest;
 use App\Http\Requests\OrderRequest;
 use App\Models\Comment;
 use App\Models\Order;
+use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,7 @@ class OrderController extends Controller
     }
     public function orderview()
     {
-        return view("order");
+        $places = Place::all();
+        return view("order", compact('places'));
     }
 }

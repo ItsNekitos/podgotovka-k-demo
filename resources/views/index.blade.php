@@ -18,16 +18,17 @@
                     <h1>Залы для конференций</h1>
                 </div>
                 <div id="zali">
+                    @foreach($places as $place)
                     <div class="card">
                         <div class="card-img">
-                            <img src="{{ asset('img/diploma.webp') }}" alt="">
+                            <img src="{{ $place->photo }}" alt="">
                         </div>
                         <div class="card-desc">
                             <div class="card-desc-head">
-                                <p>Маленький зал для конференций</p>
+                                <p>{{ $place->name }}</p>
                             </div>
                             <div class="card-desc-desc">
-                                <p>Он находится тут та там та там ваще комфортик</p>
+                                <p>{{ $place->desc }}</p>
                             </div>
                             <div class="card-desc-button">
                                 @auth
@@ -38,52 +39,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="{{ asset('img/12fe2c7de382debb49c.jpg') }}" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <div class="card-desc-head">
-                                <p>Средний стильный зал для конференций</p>
-                            </div>
-                            <div class="card-desc-desc">
-                                <p>Он находится тут та там та там ваще комфортик</p>
-                            </div>
-                            <div class="card-desc-button">
-                                @auth
-                                <div>
-                                    <a href="orderview">Заказать</a>
-                                </div>
-                                @endauth
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="{{ asset('img/e0aa2a26192b2d5bd69.jpg') }}" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <div class="card-desc-head">
-                                <p>Ламповый зал для конференций</p>
-                            </div>
-                            <div class="card-desc-desc">
-                                <p>Он находится тут та там та там ваще комфортик</p>
-                            </div>
-                            <div class="card-desc-button">
-                                @auth
-                                <div>
-                                    <a href="orderview">Заказать</a>
-                                </div>
-                                @endauth
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
 
                 </div>
@@ -91,7 +47,7 @@
             <div class="sidediv"></div>
         </div>
     </main>
-    <x-footer/>
+    <x-footer />
 </body>
 
 </html>
