@@ -77,7 +77,7 @@
                             <ul>
                                 <li class="list-group-item zid">{{$order->id}}</li>
                                 <li class="list-group-item zdate">{{$order->place_name}}</li>
-                                <li class="list-group-item zadress">{{$order->date}}</li>
+                                <li class="list-group-item zadress">{{date('d.m.Y H:i:s',strtotime($order->date))}}</li>
                                 @if($order->oplata == "perevod")
                                 <li class="list-group-item zoplata">По карте</li>
                                 @else

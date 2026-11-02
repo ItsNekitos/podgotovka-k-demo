@@ -35,7 +35,7 @@
                     <div class="alert">{{ $message }}</div>
                     @enderror
                     <div>
-                        <button type="submit" style="background-color:rgb(244, 126, 0); border-color: rgb(170, 88, 0);">Войти</button>
+                        <button type="submit" style="background-color: #007bff; border-color: #0d47a1;">Войти</button>
                         <a href="{{ Route('viewregister') }}">Нет аккаунта? Зарегистрируйся</a>
                     </div>
                 </form>

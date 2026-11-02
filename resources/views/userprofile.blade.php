@@ -31,7 +31,7 @@
                         <div class="zakaz">
                             <ul class="list-group list-group-horizontal" style="width: 100%;">
                                 <li class="list-group-item zname">{{$order->place_name}}</li>
-                                <li class="list-group-item ztime">{{$order->date}}</li>
+                                <li class="list-group-item ztime">{{date('d.m.Y H:i:s',strtotime($order->date))}}</li>
                                 @if($order->oplata == "perevod")
                                 <li class="list-group-item zoplata">По карте</li>
                                 @else

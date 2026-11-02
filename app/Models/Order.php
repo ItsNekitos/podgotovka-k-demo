@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['place_name', 'date', 'oplata', 'status'])]
 class Order extends Model
 {
+
     public function user()
     {
         return $this->belongsTo(User::class);
