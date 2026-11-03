@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <!-- Сделать помещения списком красиво и отзывы чтоб хотябы админ чекал или что то типа того -->
+ <!-- Claude - я сделал эту часть кода. Если нужно еще что-то, сообщи -->
 <body>
     <x-header />
     <main>
