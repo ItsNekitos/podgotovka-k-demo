@@ -6,7 +6,7 @@ use App\Models\Comment;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['place_name', 'date', 'oplata', 'status'])]
+#[Fillable(['place_name', 'event', 'date', 'oplata', 'status'])]
 class Order extends Model
 {
 

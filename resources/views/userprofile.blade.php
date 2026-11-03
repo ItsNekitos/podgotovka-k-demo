@@ -23,6 +23,7 @@
                         <div class="zakaz">
                             <ul>
                                 <li>Место</li>
+                                <li>Мероприятие</li>
                                 <li>Дата заказа</li>
                                 <li>Оплата</li>
                                 <li>Статус</li>
@@ -31,6 +32,7 @@
                         <div class="zakaz">
                             <ul class="list-group list-group-horizontal" style="width: 100%;">
                                 <li class="list-group-item zname">{{$order->place_name}}</li>
+                                <li>{{ $order->event }}</li>
                                 <li class="list-group-item ztime">{{date('d.m.Y H:i:s',strtotime($order->date))}}</li>
                                 @if($order->oplata == "perevod")
                                 <li class="list-group-item zoplata">По карте</li>
@@ -40,9 +42,11 @@
                                 <li class="list-group-item zstatus">
                                     <h4>
                                         @if($order->status == "in_process")
-                                        В работе
+                                        Мероприятие назначено
+                                        @elseif($order->status == "new")
+                                        Новое
                                         @elseif($order->status == "done")
-                                        Готово
+                                        Завершено
                                         @elseif($order->status == "canceled")
                                         Отменен
                                         @endif

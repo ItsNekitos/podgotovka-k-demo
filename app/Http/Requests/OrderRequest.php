@@ -24,6 +24,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'place_name'=>'required|min:3',
+            'event'=>'required|min:3',
             'date'=>'required',
             'oplata'=>'required',
         ];

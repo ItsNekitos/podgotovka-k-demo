@@ -24,7 +24,7 @@ class OrderController extends Controller
 
             $order->user_id = Auth::user()->id;
             $order->place_name = $request->place_name;
-            $order
+            $order->event = $request->event;
             $order->date = $request->date;
             $order->oplata = $request->oplata;
             $order->save();

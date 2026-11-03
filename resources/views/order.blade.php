@@ -33,6 +33,13 @@
                         <div class="alert">{{ $message }}</div>
                         @enderror
                         <div class="mb-3">
+                            <label>Название мероприятия</label>
+                            <input type="text" value="{{ old('event') }}" name="event">
+                        </div>
+                        @error('event')
+                        <div class="alert">{{ $message }}</div>
+                        @enderror
+                        <div class="mb-3">
                             <label>Дата и время бронирования зала</label>
                             <input type="datetime-local" value="{{ old('date') }}" name="date">
                         </div>
