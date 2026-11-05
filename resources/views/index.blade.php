@@ -37,11 +37,6 @@
                                     <a href="orderview">Заказать</a>
                                 </div>
                                 @endif
-                                @if (Auth::user()->role == 'admin')
-                                <div style="background-color: rgb(255, 50, 50);">
-                                    <a href="placedelete/{{ $place->id }}">Удалить</a>
-                                </div>
-                                @endif
                                 @endauth
                             </div>
                         </div>

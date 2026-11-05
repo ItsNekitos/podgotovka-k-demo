@@ -8,8 +8,7 @@
 </head>
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-<!-- Сделать помещения списком красиво и отзывы чтоб хотябы админ чекал или что то типа того -->
- <!-- Claude - я сделал эту часть кода. Если нужно еще что-то, сообщи -->
+
 <body>
     <x-header />
     <main>
@@ -19,6 +18,7 @@
                 <div id="zagolovok">
                     <h1>Заказы</h1>
                 </div>
+                @foreach ($orders as $order)
                 <article class="post">
                     <div id="zakazes">
                         <div class="zakaz">
@@ -32,7 +32,7 @@
                                 <li class="zbutton"></li>
                             </ul>
                         </div>
-                        @foreach ($orders as $order)
+
                         <form action="{{ Route('orderedit', [$order->id]) }}" method="get">
                             @csrf
                             <ul>
@@ -58,10 +58,29 @@
                                 </li>
                             </ul>
                         </form>
-                        @endforeach
+
+                        <div>
+                            <div style="margin-left: 20px;">
+                                @foreach ($order->comment as $comment)
+                                <div style="border: 2px solid #0d47a1; border-radius: 7px; margin:0 10px 10px 0; padding-left: 10px;">
+                                    <p style="font-size:20px;">{{ $comment->user->name }}</p>
+                                    <div>
+                                        <p style="margin-left: 10px; margin-bottom: 15px; margin-top: 5px; color:rgb(55,55,55);">{{ $comment->description }}</p>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <form action="{{ Route('comment', [$order->id]) }}" method="post" style="height:200px;">
+                            <textarea id="comment" name="description" style="width:96%; height:80%; margin-top:5px; padding:5px;" placeholder="Напишите ответ пользователю"></textarea>
+                            @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <button style="margin:10px;" type="submit">Оставить</button>
+                        </form>
                     </div>
                 </article>
-
+                @endforeach
 
 
                 <div id="zagolovok">
@@ -100,6 +119,52 @@
                     </div>
                 </article>
 
+
+
+                <div id="zagolovok">
+                    <h1>Список помещений</h1>
+                </div>
+                <div style="display: flex; flex-direction:column; align-items:center;">
+                    @foreach ($places as $place)
+                    <form action="{{ Route('placeupdate', $place->id) }}" method="post" enctype="multipart/form-data" style="height:auto;">
+                        @csrf
+                        <div class="card" style="width:85%; height:780px;">
+                            <div class="card-img">
+                                <img src="{{ $place->photo }}" alt="">
+                            </div>
+                            <div class="card-desc">
+                                <div class="card-desc-head">
+                                    <label for="placename">Название</label>
+                                    <input id="placename" type="text" value="{{ $place->name }}" name="placename" placeholder="Название">
+                                </div>
+                                @error('placename')
+                                <div class="alert">{{ $message }}</div>
+                                @enderror
+
+                                <div class="card-desc-desc">
+                                    <label for="descplace">Описание</label>
+                                    <textarea id="descplace" type="text" name="descplace" placeholder="Описание">{{ $place->desc }}</textarea>
+                                </div>
+                                @error('descplace')
+                                <div class="alert">{{ $message }}</div>
+                                @enderror
+
+                                <div>
+                                    <label for="photoplace">Фото</label>
+                                    <input id="photoplace" type="file" name="photoplace">
+                                </div>
+                                @error('photoplace')
+                                <div class="alert">{{ $message }}</div>
+                                @enderror
+
+                                    <button class="card-desc-button" type="submit" style="width:80%; height:100px;">Редактировать</button>
+
+                                    <a href="placedelete/{{ $place->id }}" style="width: 80%; height:90px; background-color:red; display:flex; align-items:center; justify-content:center; text-decoration:none; color:white; border:solid 2px; border-radius:10px; border-color:rgb(175, 0, 0); margin-top:10px;">Удалить</a>
+                            </div>
+                        </div>
+                    </form>
+                    @endforeach
+                </div>
             </div>
             <div class="sidediv"></div>
         </div>

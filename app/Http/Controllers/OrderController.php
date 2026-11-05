@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderEditRequest;
 use App\Http\Requests\OrderRequest;
+use App\Http\Requests\OrderUpdateRequest;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Models\Place;
@@ -18,19 +19,21 @@ class OrderController extends Controller
         $comments = Comment::all();
         return view('userprofile', compact('orders', 'comments'));
     }
-    
-    public function orderform(OrderRequest $request){
-            $order = new Order();
 
-            $order->user_id = Auth::user()->id;
-            $order->place_name = $request->place_name;
-            $order->event = $request->event;
-            $order->date = $request->date;
-            $order->oplata = $request->oplata;
-            $order->save();
-            return redirect()->route('order');
+    public function orderform(OrderRequest $request)
+    {
+        $order = new Order();
+
+        $order->user_id = Auth::user()->id;
+        $order->place_name = $request->place_name;
+        $order->event = $request->event;
+        $order->date = $request->date;
+        $order->oplata = $request->oplata;
+        $order->save();
+        return redirect()->route('order');
     }
-    public function orderedit(OrderEditRequest $request, $id){
+    public function orderedit(OrderEditRequest $request, $id)
+    {
         $order = Order::find($id);
         $order->status = $request->status;
         $order->save();

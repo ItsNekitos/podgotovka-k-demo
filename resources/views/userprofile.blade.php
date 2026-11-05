@@ -67,7 +67,7 @@
                                     <label for="">Отзывы:</label>
                                     @foreach ($comments as $comment)
                                     @if ($comment->order_id == $order->id)
-                                    <div style="margin-left: 20px;">
+                                    <div style="width:95%; margin-left: 20px; border: 2px solid #0d47a1; border-radius: 7px; margin:0 10px 10px 0; padding-left: 10px;">
                                         <p style="font-size:20px;">{{ $comment->user->name }}</p>
                                         <p style="margin-left: 10px; margin-bottom: 15px; margin-top: 5px; color:rgb(55,55,55);">{{ $comment->description }}</p>
                                     </div>

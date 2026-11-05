@@ -24,6 +24,7 @@ Route::get("/order", [OrderController::class, 'order'])->name('order');
 Route::get("/orderedit/{orderid}", [OrderController::class, 'orderedit'])->name('orderedit');
 
 Route::post("/placeform", [PlaceController::class, "placeform"])->name('placeform');
+Route::post("/placeupdate/{place}", [PlaceController::class, "placeupdate"])->name('placeupdate');
 Route::get("/placedelete/{placeid}", [PlaceController::class, "placedelete"])->name('placedelete');
 
 Route::post("/comment/{orderid}", [CommentController::class, "comment"])->name('comment');

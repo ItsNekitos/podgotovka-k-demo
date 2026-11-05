@@ -63,6 +63,7 @@ class UserController extends Controller
     public function adminpanel()
     {
         $orders = Order::all();
-        return view('adminpanel', compact('orders'));
+        $places = Place::all();
+        return view('adminpanel', compact('orders', 'places'));
     }
 }
