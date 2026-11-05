@@ -70,14 +70,9 @@
                                 </div>
                                 @endforeach
                             </div>
+                                <a href="commentview/{{ $order->id }}" style="width: 90%; height:90px; margin:0 auto; background-color:#007bff; display:flex; align-items:center; justify-content:center; text-decoration:none; color:white; border:solid 2px; border-radius:10px; border-color:#0d47a1; margin-bottom:10px;">Оставить отзыв</a>
                         </div>
-                        <form action="{{ Route('comment', [$order->id]) }}" method="post" style="height:200px;">
-                            <textarea id="comment" name="description" style="width:96%; height:80%; margin-top:5px; padding:5px;" placeholder="Напишите ответ пользователю"></textarea>
-                            @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            <button style="margin:10px;" type="submit">Оставить</button>
-                        </form>
+
                     </div>
                 </article>
                 @endforeach

@@ -19,4 +19,9 @@ class CommentController extends Controller
         $comment->save();
         return back();
     }
+    public function commentview($orderid)
+    {
+        $orders = Order::where("id", $orderid)->get();
+        return view("comment", compact('orders'));
+    }
 }

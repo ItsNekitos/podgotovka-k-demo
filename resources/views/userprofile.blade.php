@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <body>
     <x-header />
@@ -55,14 +56,7 @@
                             </ul>
                             <div id="comments">
                                 @if($order->status == "done")
-                                <label for="comment">Оставить отзыв</label>
-                                <form action="{{ Route('comment', [$order->id]) }}" method="post">
-                                    <textarea id="comment" name="description" id=""></textarea>
-                                    @error('description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                    <button style="margin-bottom:10px;" type="submit">Оставить</button>
-                                </form>
+                                <a href="commentview/{{ $order->id }}" style="width: 90%; height:90px; margin:0 auto; background-color:#007bff; display:flex; align-items:center; justify-content:center; text-decoration:none; color:white; border:solid 2px; border-radius:10px; border-color:#0d47a1; margin-bottom:10px;">Оставить отзыв</a>
                                 <div style="width:100%; display: flex; flex-direction:column; justify-content:start; margin-left: 50px;">
                                     <label for="">Отзывы:</label>
                                     @foreach ($comments as $comment)

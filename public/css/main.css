@@ -5,4 +5,7 @@
     border-color: rgb(164, 0, 0);
     background-color: rgb(255, 165, 165);
     color: rgb(164, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

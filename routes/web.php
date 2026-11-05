@@ -28,3 +28,4 @@ Route::post("/placeupdate/{place}", [PlaceController::class, "placeupdate"])->na
 Route::get("/placedelete/{placeid}", [PlaceController::class, "placedelete"])->name('placedelete');
 
 Route::post("/comment/{orderid}", [CommentController::class, "comment"])->name('comment');
+Route::get("/commentview/{orderid}", [CommentController::class, "commentview"])->name('commentview');
