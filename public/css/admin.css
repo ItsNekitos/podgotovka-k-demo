@@ -203,7 +203,7 @@ form button{
 
 .card-desc-desc {
     width: 100%;
-    height: 50%;
+    height: 40%;
 }
 
 .card-desc-desc p {
@@ -239,4 +239,33 @@ form button{
     font-size: 28px;
     text-decoration: none;
     color: white;
+}
+#switch{
+    width: 80%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px;
+}
+#switch a{
+    width: 30%;
+    height: 100%;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #0d47a1;
+    background-color: #007bff;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+#switch .selected{
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #0d47a1;
+    background-color: #ffffff;
+    color: rgb(80, 80, 80);
 }

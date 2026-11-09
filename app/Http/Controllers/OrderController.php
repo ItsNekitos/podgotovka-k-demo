@@ -11,6 +11,8 @@ use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function Laravel\Prompts\alert;
+
 class OrderController extends Controller
 {
     public function order()

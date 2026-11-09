@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get("/homepage", [UserController::class, "homepage"])->name('homepage');
 Route::post("/register", [UserController::class, "register"])->name('register');
 Route::get("/login", [UserController::class, "login"])->name('login');
 Route::get("/logout", [UserController::class, "logout"])->name('logout');
 Route::get("/viewregister", [UserController::class, "viewregister"])->name('viewregister');
 Route::get("/viewlogin", [UserController::class, "viewlogin"])->name('viewlogin');
-Route::get("/homepage", [UserController::class, "homepage"])->name('homepage');
 Route::get("/userprofileview", [UserController::class, "userprofileview"])->name('userprofileview');
-Route::get("/adminpanel", [UserController::class, "adminpanel"])->name('adminpanel');
+Route::get("/adminpanel/{page}", [UserController::class, "adminpanel"])->name('adminpanel');
 
 Route::get("/orderview", [OrderController::class, "orderview"])->name('orderview');
 Route::post("/orderform", [OrderController::class, "orderform"])->name('orderform');
@@ -26,6 +26,7 @@ Route::get("/orderedit/{orderid}", [OrderController::class, 'orderedit'])->name(
 Route::post("/placeform", [PlaceController::class, "placeform"])->name('placeform');
 Route::post("/placeupdate/{place}", [PlaceController::class, "placeupdate"])->name('placeupdate');
 Route::get("/placedelete/{placeid}", [PlaceController::class, "placedelete"])->name('placedelete');
+Route::get("/placeview/{placeid}", [PlaceController::class, "placeview"])->name('placeview');
 
 Route::post("/comment/{orderid}", [CommentController::class, "comment"])->name('comment');
 Route::get("/commentview/{orderid}", [CommentController::class, "commentview"])->name('commentview');

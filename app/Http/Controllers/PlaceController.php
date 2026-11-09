@@ -21,7 +21,7 @@ class PlaceController extends Controller
         $place->photo = 'storage/' . $path;
 
         $place->save();
-        return redirect()->route('adminpanel');
+        return redirect()->route('adminpanel',['page'=>'spisok']);
     }
     public function placeupdate(PlaceUpdateRequest $request, Place $place)
     {
@@ -34,11 +34,16 @@ class PlaceController extends Controller
         }
 
         $place->save();
-        return redirect()->route('adminpanel');
+        return redirect()->route('adminpanel',['page'=>'spisok']);
     }
     public function placedelete(Place $placeid)
     {
         $placeid->delete();
-        return redirect()->route('adminpanel');
+        return back();
+    }
+    public function placeview($placeid)
+    {
+        $places = Place::where("id", $placeid)->get();
+        return view("place", compact('places'));
     }
 }

@@ -60,10 +60,18 @@ class UserController extends Controller
         $comments = Comment::all();
         return view('userprofile', compact('orders', 'comments'));
     }
-    public function adminpanel()
+    public function adminpanel($page)
     {
         $orders = Order::all();
         $places = Place::all();
-        return view('adminpanel', compact('orders', 'places'));
+        if($page == 'zakaz'){
+            return view('adminpanelzakaz', compact('orders', 'places'));
+        }
+        if($page == 'create'){
+            return view('adminpanelcreate', compact('orders', 'places'));
+        }
+        if($page == 'spisok'){
+            return view('adminpanelspisok', compact('orders', 'places'));
+        }
     }
 }

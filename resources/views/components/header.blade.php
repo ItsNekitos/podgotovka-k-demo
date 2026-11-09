@@ -16,7 +16,7 @@
             @auth
             <div>
                 @if (Auth::user()->role == 'admin')
-                <a href="{{ route('adminpanel') }}">Панель</a>
+                <a href="{{ route('adminpanel',['page' => 'zakaz']) }}">Панель</a>
                 @else
                 <a href="{{ route('userprofileview') }}">Профиль</a>
                 @endif

@@ -15,6 +15,13 @@
         <div id="maindiv">
             <div class="sidediv"></div>
             <div id="osnova">
+                @if (Auth::user()->role == 'admin')
+                <div id="switch">
+                    <a href="{{ route('adminpanel',['page' => 'zakaz']) }}">Заказы</a>
+                    <a href="{{ route('adminpanel',['page' => 'create']) }}">Создать помещение</a>
+                    <a href="{{ route('adminpanel',['page' => 'spisok']) }}">Список помещений</a>
+                </div>
+                @endif
                 <div id="zagolovok">
                     <h1>Заказ</h1>
                 </div>
@@ -54,7 +61,7 @@
                                     </select>
                                 </li>
                                 <li class="zbutton">
-                                    
+
                                 </li>
                             </ul>
                         </form>
@@ -72,7 +79,7 @@
                             </div>
                         </div>
                         <form action="{{ Route('comment', [$order->id]) }}" method="post" style="height:200px;">
-                            <textarea id="comment" name="description" style="width:96%; height:80%; margin-top:5px; margin-bottom:5px; padding:5px;" placeholder="Напишите ответ пользователю"></textarea>
+                            <textarea id="comment" name="description" style="width:96%; height:80%; margin-top:5px; margin-bottom:5px; padding:5px;" placeholder="Оставьте ответ"></textarea>
                             @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
